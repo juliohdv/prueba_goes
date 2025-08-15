@@ -55,7 +55,7 @@ const importRules = () => ({
   'import/default': 0,
   'import/namespace': 0,
   'import/no-named-as-default': 0,
-  'import/newline-after-import': 2,
+  'import/newline-after-import': 0,
   'import/no-named-as-default-member': 0,
   'import/no-cycle': [
     0, // disabled if slow
@@ -79,74 +79,74 @@ const unusedImportsRules = () => ({
  * @rules sort or imports/exports
  * from 'eslint-plugin-perfectionist'.
  */
-const sortImportsRules = () => {
-  const customGroups = {
-    mui: ['custom-mui'],
-    auth: ['custom-auth'],
-    hooks: ['custom-hooks'],
-    utils: ['custom-utils'],
-    types: ['custom-types'],
-    routes: ['custom-routes'],
-    sections: ['custom-sections'],
-    components: ['custom-components'],
-  };
+// const sortImportsRules = () => {
+//   const customGroups = {
+//     mui: ['custom-mui'],
+//     auth: ['custom-auth'],
+//     hooks: ['custom-hooks'],
+//     utils: ['custom-utils'],
+//     types: ['custom-types'],
+//     routes: ['custom-routes'],
+//     sections: ['custom-sections'],
+//     components: ['custom-components'],
+//   };
 
-  return {
-    'perfectionist/sort-named-imports': [1, { type: 'line-length', order: 'asc' }],
-    'perfectionist/sort-named-exports': [1, { type: 'line-length', order: 'asc' }],
-    'perfectionist/sort-exports': [
-      1,
-      {
-        order: 'asc',
-        type: 'line-length',
-        groupKind: 'values-first',
-      },
-    ],
-    'perfectionist/sort-imports': [
-      2,
-      {
-        order: 'asc',
-        ignoreCase: true,
-        type: 'line-length',
-        environment: 'node',
-        maxLineLength: undefined,
-        newlinesBetween: 'always',
-        internalPattern: ['^src/.+'],
-        groups: [
-          'style',
-          'side-effect',
-          'type',
-          ['builtin', 'external'],
-          customGroups.mui,
-          customGroups.routes,
-          customGroups.hooks,
-          customGroups.utils,
-          'internal',
-          customGroups.components,
-          customGroups.sections,
-          customGroups.auth,
-          customGroups.types,
-          ['parent', 'sibling', 'index'],
-          ['parent-type', 'sibling-type', 'index-type'],
-          'object',
-          'unknown',
-        ],
-        customGroups: {
-          value: {
-            [customGroups.mui]: ['^@mui/.+'],
-            [customGroups.auth]: ['^src/auth/.+'],
-            [customGroups.hooks]: ['^src/hooks/.+'],
-            [customGroups.utils]: ['^src/utils/.+'],
-            [customGroups.types]: ['^src/types/.+'],
-            [customGroups.routes]: ['^src/routes/.+'],
-            [customGroups.sections]: ['^src/sections/.+'],
-            [customGroups.components]: ['^src/components/.+'],
-          },
-        },
-      },
-    ],
-  };
-};
+//   return {
+//     'perfectionist/sort-named-imports': [1, { type: 'line-length', order: 'asc' }],
+//     'perfectionist/sort-named-exports': [1, { type: 'line-length', order: 'asc' }],
+//     'perfectionist/sort-exports': [
+//       1,
+//       {
+//         order: 'asc',
+//         type: 'line-length',
+//         groupKind: 'values-first',
+//       },
+//     ],
+//     'perfectionist/sort-imports': [
+//       2,
+//       {
+//         order: 'asc',
+//         ignoreCase: true,
+//         type: 'line-length',
+//         environment: 'node',
+//         maxLineLength: undefined,
+//         newlinesBetween: 'always',
+//         internalPattern: ['^src/.+'],
+//         groups: [
+//           'style',
+//           'side-effect',
+//           'type',
+//           ['builtin', 'external'],
+//           customGroups.mui,
+//           customGroups.routes,
+//           customGroups.hooks,
+//           customGroups.utils,
+//           'internal',
+//           customGroups.components,
+//           customGroups.sections,
+//           customGroups.auth,
+//           customGroups.types,
+//           ['parent', 'sibling', 'index'],
+//           ['parent-type', 'sibling-type', 'index-type'],
+//           'object',
+//           'unknown',
+//         ],
+//         customGroups: {
+//           value: {
+//             [customGroups.mui]: ['^@mui/.+'],
+//             [customGroups.auth]: ['^src/auth/.+'],
+//             [customGroups.hooks]: ['^src/hooks/.+'],
+//             [customGroups.utils]: ['^src/utils/.+'],
+//             [customGroups.types]: ['^src/types/.+'],
+//             [customGroups.routes]: ['^src/routes/.+'],
+//             [customGroups.sections]: ['^src/sections/.+'],
+//             [customGroups.components]: ['^src/components/.+'],
+//           },
+//         },
+//       },
+//     ],
+//   };
+// };
 
 /**
  * Custom ESLint configuration.
@@ -172,7 +172,6 @@ export const customConfig = {
     ...commonRules(),
     ...importRules(),
     ...unusedImportsRules(),
-    ...sortImportsRules(),
   },
 };
 

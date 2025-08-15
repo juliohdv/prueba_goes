@@ -6,6 +6,7 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Build */
     "target": "ES2020",

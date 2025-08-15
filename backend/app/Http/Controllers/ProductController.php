@@ -12,6 +12,7 @@ class ProductController extends Controller
             ["name" => "Producto A", "price" => 100],
             ["name" => "Producto B", "price" => 200],
             ["name" => "Producto C", "price" => 300],
+            ["name" => "Producto D", "price" => 185.25],
         );
         return response()->json(["message"=>"Exito", "productos"=>$productos],200);
     }
