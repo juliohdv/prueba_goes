@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "689efbf3-e52b-489e-a9ca-4f173c0670b2",
+		"name": "goes_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14272397"
+	},
+	"item": [
+		{
+			"name": "1.1 - Validación de datos",
+			"item": [
+				{
+					"name": "Validar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"\",\r\n    \"email\" : \"correo@dominio.com\",\r\n    \"age\" : 17\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/validar/usuario"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1.2 DOM",
+			"item": [
+				{
+					"name": "Obtener Productos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1.3 CRUD",
+			"item": [
+				{
+					"name": "Obtener Tareas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "htto://127.0.0.1:8000/tareas/obtener"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Tarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Tarea 2\",\r\n    \"description\" : \"Descripcion 2\",\r\n    \"status\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/tareas/crear"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Tarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"status\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/tareas/actualizar"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://127.0.0.1:8000",
+			"type": "default"
+		}
+	]
+}
